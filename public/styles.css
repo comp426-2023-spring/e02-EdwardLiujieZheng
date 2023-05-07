@@ -64,16 +64,7 @@ select {
     background-color: #45a049;
 }
 
-.result-container {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-}
-
-
-.game-container {
+.result-container, .game-container, .rules-container {
     position: absolute;
     top: 50%;
     left: 50%;
