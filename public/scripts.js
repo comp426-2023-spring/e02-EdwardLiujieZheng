@@ -30,4 +30,7 @@ function updateMoveOptions() {
         option.textContent = move.charAt(0).toUpperCase() + move.slice(1);
         moveSelect.appendChild(option);
     }
+
+    // Call showMoveSelection() to update the Play button state
+    showMoveSelection();
 }
