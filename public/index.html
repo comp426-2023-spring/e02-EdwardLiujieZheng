@@ -11,29 +11,28 @@
     <div class="game-container">
         <div class="game-choice">
             <label for="game-type">Choose a game:</label>
-            <select id="game-type">
+            <select id="game-type" onchange="updateMoveOptions()">
+                <option value="">Select a game...</option>
                 <option value="rps">Rock, Paper, Scissors</option>
                 <option value="rpsls">Rock, Paper, Scissors, Lizard, Spock</option>
             </select>
         </div>
         <div class="opponent-choice">
-            <label for="opponent-type">Choose an opponent:</label>
-            <select id="opponent-type">
-                <option value="random">Random Draw</option>
-                <option value="player">Another Player</option>
+            <label for="opponent-type">Choose how to play:</label>
+            <select id="opponent-type" onchange="showMoveSelection()">
+                <option value="">Select how to play...</option>
+                <option value="without">Play without an opponent (Random Draw)</option>
+                <option value="with">Play with an opponent</option>
             </select>
         </div>
-        <div class="move-choice">
+        <div class="move-choice" style="display: none;">
             <label for="player-move">Choose your move:</label>
             <select id="player-move">
-                <option value="rock">Rock</option>
-                <option value="paper">Paper</option>
-                <option value="scissors">Scissors</option>
-                <option value="lizard">Lizard</option>
-                <option value="spock">Spock</option>
+                <!-- Move options will be populated by JavaScript -->
             </select>
         </div>
-        <button class="reset-button">Reset</button>
+        <a href="results.html" class="play-button">Play</a>
     </div>
+    <script src="scripts.js"></script>
 </body>
 </html>

@@ -1,3 +1,30 @@
-// If you would like to see some examples of similar code to make an interface interact with an API, 
-// check out the coin-server example from a previous COMP 426 semester.
-// https://github.com/jdmar3/coinserver
+function showMoveSelection() {
+    const gameType = document.getElementById('game-type').value;
+    const opponentType = document.getElementById('opponent-type').value;
+
+    if (gameType && opponentType) {
+        document.querySelector('.move-choice').style.display = 'block';
+    } else {
+        document.querySelector('.move-choice').style.display = 'none';
+    }
+}
+
+function updateMoveOptions() {
+    const gameType = document.getElementById('game-type').value;
+    const moveSelect = document.getElementById('player-move');
+    let moveOptions = [];
+
+    if (gameType === 'rps') {
+        moveOptions = ['rock', 'paper', 'scissors'];
+    } else if (gameType === 'rpsls') {
+        moveOptions = ['rock', 'paper', 'scissors', 'lizard', 'spock'];
+    }
+
+    moveSelect.innerHTML = '';
+    for (const move of moveOptions) {
+        const option = document.createElement('option');
+        option.value = move;
+        option.textContent = move.charAt(0).toUpperCase() + move.slice(1);
+        moveSelect.appendChild(option);
+    }
+}
