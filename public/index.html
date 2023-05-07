@@ -7,31 +7,31 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>RPS and RPSLS Game</h1>
     <div class="game-container">
-        <div class="game-choice">
-            <label for="game-type">Choose a game:</label>
-            <select id="game-type" onchange="updateMoveOptions()">
-                <option value="">Select a game...</option>
-                <option value="rps">Rock, Paper, Scissors</option>
-                <option value="rpsls">Rock, Paper, Scissors, Lizard, Spock</option>
-            </select>
-        </div>
-        <div class="opponent-choice">
-            <label for="opponent-type">Choose how to play:</label>
-            <select id="opponent-type" onchange="showMoveSelection()">
-                <option value="">Select how to play...</option>
-                <option value="without">Play without an opponent (Random Draw)</option>
-                <option value="with">Play with an opponent</option>
-            </select>
-        </div>
-        <div class="move-choice" style="display: none;">
-            <label for="player-move">Choose your move:</label>
-            <select id="player-move">
-                <!-- Move options will be populated by JavaScript -->
-            </select>
-        </div>
-        <button id="play-button" class="play-button" onclick="window.location.href='results.html'" disabled>Play</button>
+        <h1>RPS and RPSLS Game</h1>
+            <div class="game-choice">
+                <label for="game-type">Choose a game:</label>
+                <select id="game-type" onchange="updateMoveOptions()">
+                    <option value="">Select a game...</option>
+                    <option value="rps">Rock, Paper, Scissors</option>
+                    <option value="rpsls">Rock, Paper, Scissors, Lizard, Spock</option>
+                </select>
+            </div>
+            <div class="opponent-choice">
+                <label for="opponent-type">Choose how to play:</label>
+                <select id="opponent-type" onchange="showMoveSelection()">
+                    <option value="">Select how to play...</option>
+                    <option value="without">Play without an opponent (Random Draw)</option>
+                    <option value="with">Play with an opponent</option>
+                </select>
+            </div>
+            <div class="move-choice" style="display: none;">
+                <label for="player-move">Choose your move:</label>
+                <select id="player-move">
+                    <!-- Move options will be populated by JavaScript -->
+                </select>
+            </div>
+            <button id="play-button" class="play-button" onclick="window.location.href='results.html'" disabled>Play</button>
     </div>
     <script src="scripts.js"></script>
 </body>
