@@ -2,13 +2,13 @@ import { rps, rpsls } from './rpsls.js';
 
 // Add an event listener for the DOMContentLoaded event
 document.addEventListener('DOMContentLoaded', () => {
-    // Add event listeners for the game-type and opponent-type select elements
-    document.getElementById('game-type').addEventListener('change', updateMoveOptions);
-    document.getElementById('opponent-type').addEventListener('change', showMoveSelection);
-  
-    // Add event listener for the play button
-    document.getElementById('play-button').addEventListener('click', playGame);
-  });
+  // Add event listeners for the game-type and opponent-type select elements
+  document.getElementById('game-type').addEventListener('change', updateMoveOptions);
+  document.getElementById('opponent-type').addEventListener('change', showMoveSelection);
+
+  // Add event listener for the play button
+  document.getElementById('play-button').addEventListener('click', playGame);
+});
 
 function showMoveSelection() {
     const gameType = document.getElementById('game-type').value;
@@ -16,8 +16,10 @@ function showMoveSelection() {
     const playButton = document.getElementById('play-button');
 
     if (gameType && opponentType) {
-        document.querySelector('.move-choice').style.display = 'block';
         playButton.disabled = false;
+        if(opponentType == "with") {
+            document.querySelector('.move-choice').style.display = 'block';
+        }
     } else {
         document.querySelector('.move-choice').style.display = 'none';
         playButton.disabled = true;
@@ -48,17 +50,32 @@ function updateMoveOptions() {
 }
 
 function playGame() {
+    console.log("game played")
+    const opponent = document.getElementById('opponent-type').value;
     let gameResult;
-    const playerChoice = document.querySelector('input[name="move"]:checked').value;
-    const game = document.querySelector('input[name="game"]:checked').value;
-    const opponent = document.querySelector('input[name="opponent"]:checked').value;
-    if (game === 'rps') {
-      gameResult = rps(playerChoice);
-    } else if (game === 'rpsls') {
-      gameResult = rpsls(playerChoice);
+
+    if(opponent == "with") {
+        const playerChoice = document.getElementById('player-move').value;
+        const game = document.getElementById('game-type').value;
+        console.log(playerChoice, game, opponent)
+        if (game === 'rps') {
+          gameResult = rps(playerChoice);
+        } else if (game === 'rpsls') {
+          gameResult = rpsls(playerChoice);
+        }
+    } else {
+        const game = document.getElementById('game-type').value;
+        console.log(game, opponent)
+        if (game === 'rps') {
+            gameResult = rps();
+          } else if (game === 'rpsls') {
+            gameResult = rpsls();
+          }
     }
+
   
     // Save gameResult to localStorage to access it in results.html
     localStorage.setItem('gameResult', JSON.stringify(gameResult));
+    console.log(gameResult)
   }
 
