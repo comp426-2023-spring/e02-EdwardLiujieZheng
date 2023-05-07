@@ -1,12 +1,39 @@
-<html>
-    <head>
-        <title>Rock</title>
-        <!-- Link to your script file(s) and CSS in here somewhere -->
-    </head>
-    <body>
-
-    <!-- Your interface markup goes here -->
-    <!-- For interface examples, look in the `/examples/` directory in the root of your starter code repo. -->
-
-    </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RPS and RPSLS Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>RPS and RPSLS Game</h1>
+    <div class="game-container">
+        <div class="game-choice">
+            <label for="game-type">Choose a game:</label>
+            <select id="game-type">
+                <option value="rps">Rock, Paper, Scissors</option>
+                <option value="rpsls">Rock, Paper, Scissors, Lizard, Spock</option>
+            </select>
+        </div>
+        <div class="opponent-choice">
+            <label for="opponent-type">Choose an opponent:</label>
+            <select id="opponent-type">
+                <option value="random">Random Draw</option>
+                <option value="player">Another Player</option>
+            </select>
+        </div>
+        <div class="move-choice">
+            <label for="player-move">Choose your move:</label>
+            <select id="player-move">
+                <option value="rock">Rock</option>
+                <option value="paper">Paper</option>
+                <option value="scissors">Scissors</option>
+                <option value="lizard">Lizard</option>
+                <option value="spock">Spock</option>
+            </select>
+        </div>
+        <button class="reset-button">Reset</button>
+    </div>
+</body>
 </html>
