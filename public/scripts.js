@@ -1,11 +1,14 @@
 function showMoveSelection() {
     const gameType = document.getElementById('game-type').value;
     const opponentType = document.getElementById('opponent-type').value;
+    const playButton = document.getElementById('play-button');
 
     if (gameType && opponentType) {
         document.querySelector('.move-choice').style.display = 'block';
+        playButton.disabled = false;
     } else {
         document.querySelector('.move-choice').style.display = 'none';
+        playButton.disabled = true;
     }
 }
 
