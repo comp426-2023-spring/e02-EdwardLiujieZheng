@@ -5,16 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Game Results</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="results.js" type="module"></script>
 </head>
 <body>
-    <div class="result-container">
-        <h1>Game Results</h1>
-        <!-- Display game results here -->
-        <p>Your move: Rock</p>
-        <p>Opponent's move: Paper</p>
-        <p>Result: You Lose!</p>
-        <button class="play-again-button" onclick="window.location.href='index.html'" type="button">Play Again</button>
+    <div id="results-container">
+        <h2>Results</h2>
+        <p>Player: <span id="player-move"></span></p>
+        <p>Opponent: <span id="opponent-move"></span></p>
+        <p>Result: <span id="game-result"></span></p>
     </div>
+    <button id="reset-button">Play again</button>
 </body>
 </html>
 

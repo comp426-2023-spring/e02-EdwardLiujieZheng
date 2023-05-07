@@ -1,3 +1,14 @@
+
+// Add an event listener for the DOMContentLoaded event
+document.addEventListener('DOMContentLoaded', () => {
+    // Add event listeners for the game-type and opponent-type select elements
+    document.getElementById('game-type').addEventListener('change', updateMoveOptions);
+    document.getElementById('opponent-type').addEventListener('change', showMoveSelection);
+  
+    // Add event listener for the play button
+    document.getElementById('play-button').addEventListener('click', playGame);
+  });
+
 function showMoveSelection() {
     const gameType = document.getElementById('game-type').value;
     const opponentType = document.getElementById('opponent-type').value;
@@ -34,3 +45,19 @@ function updateMoveOptions() {
     // Call showMoveSelection() to update the Play button state
     showMoveSelection();
 }
+
+function playGame() {
+    let gameResult;
+    const playerChoice = document.querySelector('input[name="move"]:checked').value;
+    const game = document.querySelector('input[name="game"]:checked').value;
+    const opponent = document.querySelector('input[name="opponent"]:checked').value;
+    
+    if (game === 'rps') {
+      gameResult = rps(playerChoice);
+    } else if (game === 'rpsls') {
+      gameResult = rpsls(playerChoice);
+    }
+  
+    // Save gameResult to localStorage to access it in results.html
+    localStorage.setItem('gameResult', JSON.stringify(gameResult));
+  }
