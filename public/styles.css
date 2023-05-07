@@ -8,7 +8,7 @@ h1 {
     color: #333;
 }
 
-.game-container {
+.game-container, .result-container, .rules-container {
     width: 100%;
     max-width: 400px;
     margin: 0 auto;
@@ -72,7 +72,6 @@ select {
     text-align: center;
 }
 
-/* Add the following styles to your existing styles.css file */
 
 .game-container {
     position: absolute;
@@ -81,3 +80,14 @@ select {
     transform: translate(-50%, -50%);
     text-align: center;
 }
+
+.rules-link {
+    display: block;
+    margin-top: 15px;
+    color: #007BFF;
+    text-decoration: none;
+}
+.rules-link:hover {
+    text-decoration: underline;
+}
+
