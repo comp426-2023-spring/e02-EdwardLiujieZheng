@@ -1,3 +1,4 @@
+import { rps, rpsls } from './rpsls.js';
 
 // Add an event listener for the DOMContentLoaded event
 document.addEventListener('DOMContentLoaded', () => {
@@ -51,7 +52,6 @@ function playGame() {
     const playerChoice = document.querySelector('input[name="move"]:checked').value;
     const game = document.querySelector('input[name="game"]:checked').value;
     const opponent = document.querySelector('input[name="opponent"]:checked').value;
-    
     if (game === 'rps') {
       gameResult = rps(playerChoice);
     } else if (game === 'rpsls') {
@@ -61,3 +61,4 @@ function playGame() {
     // Save gameResult to localStorage to access it in results.html
     localStorage.setItem('gameResult', JSON.stringify(gameResult));
   }
+

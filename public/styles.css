@@ -8,7 +8,7 @@ h1 {
     color: #333;
 }
 
-.game-container, .result-container, .rules-container {
+.game-container, .results-container, .rules-container {
     width: 100%;
     max-width: 400px;
     margin: 0 auto;
@@ -39,7 +39,7 @@ select {
 }
 
 .play-button,
-.play-again-button {
+.reset-button {
     background-color: #4CAF50;
     border: none;
     color: white;
@@ -54,7 +54,7 @@ select {
 }
 
 .play-button:disabled,
-.play-again-button:disabled {
+.reset-button:disabled {
     background-color: #a3a3a3;
     cursor: not-allowed;
 }
@@ -64,7 +64,7 @@ select {
     background-color: #45a049;
 }
 
-.result-container, .game-container, .rules-container {
+.results-container, .game-container, .rules-container {
     position: absolute;
     top: 50%;
     left: 50%;
