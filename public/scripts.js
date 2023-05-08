@@ -49,43 +49,39 @@ function updateMoveOptions() {
     showMoveSelection();
 }
 
-async function sendPlayCall(gameType, playerChoice, opponentType) {
+async function sendPlayCallWith(gameType, playerChoice) {
     try {
-      const response = await fetch(`/app/play/${gameType}/${playerChoice}/${opponentType}`);
+      const response = await fetch(`/app/play/${gameType}/${playerChoice}`);
       const data = await response.json();
       return data;
     } catch (error) {
       console.error('Error:', error);
     }
+}
+
+async function sendPlayCallWithout(gameType) {
+  try {
+    const response = await fetch(`/app/play/${gameType}`);
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('Error:', error);
   }
+}
   
-function playGame() {
+async function playGame() {
     console.log("game played")
     const opponent = document.getElementById('opponent-type').value;
+    const game = document.getElementById('game-type').value;
     let gameResult;
-
     if(opponent == "with") {
         const playerChoice = document.getElementById('player-move').value;
-        const game = document.getElementById('game-type').value;
-        console.log(playerChoice, game, opponent)
-        if (game === 'rps') {
-          gameResult = rps(playerChoice);
-        } else if (game === 'rpsls') {
-          gameResult = rpsls(playerChoice);
-        }
+        gameResult = await sendPlayCallWith(game, playerChoice);
     } else {
-        const game = document.getElementById('game-type').value;
-        console.log(game, opponent)
-        if (game === 'rps') {
-            gameResult = rps();
-          } else if (game === 'rpsls') {
-            gameResult = rpsls();
-          }
+        gameResult = await sendPlayCallWithout(game);
     }
 
-  
-    // Save gameResult to localStorage to access it in results.html
+    // Save gameResult and opponentType to localStorage
     localStorage.setItem('gameResult', JSON.stringify(gameResult));
-    console.log(gameResult)
   }
 

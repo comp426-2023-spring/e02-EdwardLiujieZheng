@@ -64,7 +64,36 @@ const app = express()
 app.get('/app/', (req, res) => {
     res.status(200).send('200 OK');
   });
-  
+
+import { rps, rpsls } from './public/rpsls.js';
+
+app.get('/app/play/:gameType/:playerChoice/', (req, res) => {
+    const { gameType, playerChoice } = req.params;
+    let gameResult;
+
+    if (gameType === 'rps') {
+        gameResult = rps(playerChoice);
+    } else if (gameType === 'rpsls') {
+        gameResult = rpsls(playerChoice);
+    }
+
+    res.json(gameResult);
+});
+
+app.get('/app/play/:gameType/', (req, res) => {
+    const { gameType,} = req.params;
+    let gameResult;
+
+    if (gameType === 'rps') {
+        gameResult = rps();
+    } else if (gameType === 'rpsls') {
+        gameResult = rpsls();
+    }
+
+    res.json(gameResult);
+});
+
+
 // Set a port for the server to listen on
 const port = args.port || args.p || process.env.PORT || 8080
 // Load app middleware here to serve routes, accept data requests, etc.
