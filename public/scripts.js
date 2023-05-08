@@ -49,6 +49,16 @@ function updateMoveOptions() {
     showMoveSelection();
 }
 
+async function sendPlayCall(gameType, playerChoice, opponentType) {
+    try {
+      const response = await fetch(`/app/play/${gameType}/${playerChoice}/${opponentType}`);
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  }
+  
 function playGame() {
     console.log("game played")
     const opponent = document.getElementById('opponent-type').value;

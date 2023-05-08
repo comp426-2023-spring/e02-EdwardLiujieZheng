@@ -59,6 +59,12 @@ if (args.debug) {
 }
 // Create an app server
 const app = express()
+
+// Check endpoint at /app/ that returns 200 OK
+app.get('/app/', (req, res) => {
+    res.status(200).send('200 OK');
+  });
+  
 // Set a port for the server to listen on
 const port = args.port || args.p || process.env.PORT || 8080
 // Load app middleware here to serve routes, accept data requests, etc.
